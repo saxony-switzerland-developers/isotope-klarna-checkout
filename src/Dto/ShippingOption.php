@@ -74,6 +74,6 @@ final class ShippingOption
         $rate = StringUtil::deserialize($includes->rate, true);
 
         $this->tax_rate = (int) round($rate['value'] * 100);
-        $this->tax_amount = (int) round($includes->calculateAmountIncludedInPrice($this->price) * 100);
+        $this->tax_amount = (int) round($includes->calculateAmountIncludedInPrice($this->price));
     }
 }
