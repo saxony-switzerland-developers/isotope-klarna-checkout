@@ -34,7 +34,7 @@ final class Surcharge extends AbstractOrderLine
 
         if ($surcharge->hasTax()) {
             $this->total_tax_amount = (int) round(($surcharge->total_price - $surcharge->tax_free_total_price) * 100);
-            $this->tax_rate = (int) round(($this->total_tax_amount / $this->total_amount) * 1000);
+            $this->tax_rate = (int) round(($surcharge->total_price / $surcharge->tax_free_total_price - 1 ) * 10000);
         } else {
             $this->tax_rate = 0;
             $this->total_tax_amount = 0;
